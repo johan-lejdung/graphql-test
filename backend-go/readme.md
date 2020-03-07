@@ -48,3 +48,20 @@ examples queries
   }
 }
 ```
+
+**Create new**
+```
+mutation {
+  createPokemon(pokemon: {name: "Johanisaur", image: "image"}) {
+    id
+    name
+  }
+}
+```
+
+**Delete**
+```
+mutation {
+  deletePokemon(id: 2)
+}
+```

@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/friendsofgo/graphiql"
 	"github.com/gorilla/handlers"
@@ -13,6 +14,16 @@ import (
 )
 
 var s = `
+	input PokemonInput {
+		name: String!
+		image: String!
+	}
+
+	type Mutation {
+		deletePokemon(id: Int!): Boolean!
+		createPokemon(pokemon: PokemonInput!): Pokemon
+	}
+
 	type Query {
 		pokemon(id: Int!): Pokemon
 		pokemons(first: Int!): [Pokemon]!
@@ -27,6 +38,11 @@ var s = `
 	}
 `
 
+type PokemonInput struct {
+	Name  string
+	Image string
+}
+
 type Pokemon struct {
 	id         int32
 	number     string
@@ -38,6 +54,28 @@ type Pokemon struct {
 var pokemons []*Pokemon
 
 type query struct{}
+
+func (q *query) DeletePokemon(ctx context.Context, args struct{ Id int32 }) bool {
+	v := []*Pokemon{}
+	for _, p := range pokemons {
+		if int32(p.id) != args.Id {
+			v = append(v, p)
+		}
+	}
+	pokemons = v
+	return true
+}
+
+func (q *query) CreatePokemon(ctx context.Context, args struct{ Pokemon *PokemonInput }) *PokemonResolver {
+	newVal := &Pokemon{
+		id:     int32(len(pokemons)),
+		number: strconv.Itoa(len(pokemons)),
+		name:   args.Pokemon.Name,
+		image:  args.Pokemon.Image,
+	}
+	pokemons = append(pokemons, newVal)
+	return &PokemonResolver{v: newVal}
+}
 
 func (q *query) Pokemons(ctx context.Context, args struct{ First int32 }) []*PokemonResolver {
 	v := []*PokemonResolver{}

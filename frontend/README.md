@@ -4,7 +4,7 @@ Change which API should be contacted in `index.js`. Either a live API with way m
 
 ---
 
-**Create React App Stuff**
+# Create React App Stuff
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

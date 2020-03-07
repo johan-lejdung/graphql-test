@@ -3,6 +3,7 @@
 Using: https://github.com/graph-gophers/graphql-go
 
 Half-followed: https://itnext.io/making-a-simple-graphql-server-with-go-dcb9b60460c6
+
 Information: https://graphql.org/learn/schema/
 
 # Run

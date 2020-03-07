@@ -13,6 +13,7 @@ import (
 	"github.com/graph-gophers/graphql-go/relay"
 )
 
+// Schema
 var s = `
 	input PokemonInput {
 		name: String!
@@ -38,6 +39,7 @@ var s = `
 	}
 `
 
+// Models
 type PokemonInput struct {
 	Name  string
 	Image string
@@ -51,8 +53,10 @@ type Pokemon struct {
 	evolutions []*Pokemon
 }
 
+// Our repository
 var pokemons []*Pokemon
 
+// QueryResolver (merged all into this one for simplicity)
 type query struct{}
 
 func (q *query) DeletePokemon(ctx context.Context, args struct{ Id int32 }) bool {
@@ -97,6 +101,7 @@ func (q *query) Pokemon(ctx context.Context, args struct{ Id int32 }) *PokemonRe
 	return nil
 }
 
+// Resolver for our model
 type PokemonResolver struct {
 	v *Pokemon
 }

@@ -1,3 +1,7 @@
+Follow: https://www.sitepoint.com/how-to-build-a-web-app-with-graphql-and-react/
+
+**Create React App Stuff**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

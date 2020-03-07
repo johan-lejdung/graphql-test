@@ -23,11 +23,13 @@ const GET_POKEMON_INFO = gql`
   }
 `;
 
+
 function App() {
   const { data, loading, err } = useQuery(GET_POKEMON_INFO);
 
   if (loading) return <>Loading...</>;
   if (err) return <>Error: {err}</>;
+  if (!data) return <>Error: No data</>;
 
   return (
     <div className="App">

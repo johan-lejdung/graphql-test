@@ -6,6 +6,12 @@ Half-followed: https://itnext.io/making-a-simple-graphql-server-with-go-dcb9b604
 
 Information: https://graphql.org/learn/schema/
 
+# Install
+
+```
+go get ./...
+```
+
 # Run
 
 ```

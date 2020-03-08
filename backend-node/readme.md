@@ -4,6 +4,12 @@ Took structure from: https://medium.com/@joeynimu/wrapping-a-rest-api-in-graphql
 
 More information: https://snipcart.com/blog/graphql-nodejs-express-tutorial
 
+# Install
+
+```
+npm install
+```
+
 # Run
 
 ```

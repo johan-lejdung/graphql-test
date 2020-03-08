@@ -2,6 +2,12 @@ Follow: https://www.sitepoint.com/how-to-build-a-web-app-with-graphql-and-react/
 
 Change which API should be contacted in `index.js`. Either a live API with way more information or a more restrictive test API in Go/Node.
 
+# Install
+
+```
+npm install
+```
+
 ---
 
 # Create React App Stuff

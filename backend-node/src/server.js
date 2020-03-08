@@ -1,5 +1,6 @@
 import express from 'express'
 import graphqlHTTP from 'express-graphql'
+import cors from 'cors'
 import bodyParser from 'body-parser';
 
 import schema from './schema'
@@ -7,6 +8,8 @@ import schema from './schema'
 const APP_PORT = 5000
 
 const app = new express()
+
+app.use(cors())
 
 app.use(bodyParser.urlencoded({
     extended: true
